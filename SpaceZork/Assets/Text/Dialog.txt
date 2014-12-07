@@ -1,0 +1,85 @@
+﻿{
+	"storyChunks" : [
+	{
+		"text" : "This is a line of dialogue, I can add tags with brackets to make dynamic things happen. One example is to wait [Wait3.0] before continuing in text. Pretty great, right?",
+		"chunkID" : "0",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "1.1",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "1",
+				"nextChunkID" : "1"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1",
+				"nextChunkID" : "1"
+			}
+		]
+	},
+	{
+		“text” : “This is another line of dialogue, I think my text parser is working now. SICK.”,
+		“chunkID” : “1”,
+		“inputOptions” : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "1.1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1",
+				"nextChunkID" : "0"
+			}
+		]
+	}
+}

@@ -28,9 +28,6 @@ public class OpenCase : MonoBehaviour
 	void OnMouseUp()
 	{
 		Vector3 endMousePos = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
-
-		Debug.Log(Vector3.Dot(endMousePos - initMousePos, Vector3.up));
-
 		float dragDot = Vector3.Dot(endMousePos - initMousePos, Vector3.up);
 
 		if(dragDot > 0.03f && !open)

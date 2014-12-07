@@ -1,71 +1,86 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class StorySystem : SingletonBehaviour<StorySystem> 
 {
-	//		Inputs:
-	//			Laser
-	//			Thrust
-	//			Toggle engine
-	//			Laser damage
-	//			Charge shield
-	//			Self-destruct
+	public enum InputSource
+	{
+		Laser			= 0,
+		Thruster		= 1,
+		EngineToggle	= 2,
+		LaserDamage		= 3,
+		ChargeShield	= 4,
+		SelfDestruct	= 5
+	}
 
 	public enum InputType
 	{
-		Binary		= 1,
-		Range		= 2,
-		Activate	= 3
+		Binary		= 0,
+		Range		= 1,
+		Activate	= 2
 	}
 
 	public struct StoryChunk
 	{
 		public struct InputOptions
 		{
-			InputOptions(InputType inInputType, float inExpectedValue, int inNextChunkID)
+			InputOptions(InputSource inInputSource, float inExpectedValue, int inNextChunkID)
 			{
-				inputType = inInputType;
+				inputSource = inInputSource;
 				expectedValue = inExpectedValue;
 				nextChunkID = inNextChunkID;
 			}
 
-			InputType inputType;
+			InputSource inputSource;
 			float expectedValue;
 			int nextChunkID;
 		}
 
 		string text;
-		string functionCall;
-
 		int chunkID;
+		InputOptions[] inputOptions;
 	};
-	
-	Text textField;
 
-	string textToRead = "there's a bluebird in my heart that wants to [ReadAtSpeed0.2]get out but I'm too [CallMethodPrintThing]tough for him," +
-		"I say, stay in there, I'm not going to [ReadAtSpeed0.05]let anybody see you. there's a bluebird in " +
-			"my heart that wants to get out [ReadAtSpeed0.001]but I pour whiskey on him and inhale cigarette smoke " +
-			"and the whores and the bartenders and the grocery clerks never know thathe's in there." +
-			"there's a bluebird in my heart that wants to get out but I'm too tough for him, I say," +
-			"stay down, do you want to mess me up? you want to screw up the works? you want to blow " +
-			"my book sales in Europe? there's a bluebird in my heart that wants to get out but I'm too " +
-			"clever, I only let him out at night sometimes when everybody's asleep. I say, I know that " +
-			"you're there, so don't be sad. then I put him back, but he's singing a little in there, I " +
-			"haven't quite let him die and we sleep together like that with our secret pact and it's " +
-			"nice enough to make a man weep, but I don't weep, do you?";
+	public Dictionary<InputSource, InputType> inputMap = new Dictionary<InputSource, InputType>();
+	Text textField;
+	int numStoryChunks = 0;
+
+	string dialogFileName = "Assets/Text/Dialog.txt";
+	SimpleJSON.JSONNode json;
+	StoryChunk[] storyChunks;
+
+	string textToRead = "";
 
 	// Tweakables
-
 	[SerializeField] float charTime = 0.01f;
 	[SerializeField] int maxLines = 7;
 	
 	void Awake()
 	{
+		inputMap.Add(InputSource.Laser, InputType.Activate);
+		inputMap.Add(InputSource.Thruster, InputType.Range);
+		inputMap.Add(InputSource.EngineToggle, InputType.Binary);
+		inputMap.Add(InputSource.LaserDamage, InputType.Range);
+		inputMap.Add(InputSource.ChargeShield, InputType.Activate);
+		inputMap.Add(InputSource.SelfDestruct, InputType.Activate);
+
 		textField = GetComponent<Text>();
 		textField.text = "";
-		
+
+		ParseDialog();
+
 		StartCoroutine(Read());
+	}
+
+	void ParseDialog()
+	{
+		string dialogText = File.ReadAllText(dialogFileName);
+		json = SimpleJSON.JSON.Parse(dialogText);
+
+		textToRead = json["storyChunks"][0]["text"];
 	}
 	
 	IEnumerator Read()
@@ -95,22 +110,54 @@ public class StorySystem : SingletonBehaviour<StorySystem>
 				if(command.Contains("ReadAtSpeed"))
 				{
 					command = command.Remove(0, 11);
-					charTime = float.Parse(command);
+
+					float tmpCharTime;
+					if(float.TryParse(command, out tmpCharTime))
+					{
+						charTime = tmpCharTime;
+					}
+					else
+					{
+						Debug.LogError("Trying to parse [ReadAtSpeed] speed, but was passed invalid value");
+					}
 				}
 				else if(command.Contains("CallMethod"))
 				{
 					command = command.Remove(0, 10);
 					Invoke(command, 0f);
 				}
+				else if(command.Contains("Wait"))
+				{
+					command = command.Remove(0, 4);
+
+					float waitTime;
+					if(float.TryParse(command, out waitTime))
+					{
+						yield return new WaitForSeconds(float.Parse(command));
+					}
+					else
+					{
+						Debug.LogError("Trying to parse [Wait] time, but was passed invalid value");
+					}
+				}
+				else if(command.Contains("GoToStoryChunk"))
+				{
+					command = command.Remove(0, 4);
+					
+					int waitTime;
+					if(int.TryParse(command, out waitTime))
+					{
+						//textToRead = GetFromJSON
+					}
+					else
+					{
+						Debug.LogError("Trying to parse [Wait] time, but was passed invalid value");
+					}
+				}
 			}
 
 			textField.text += textToRead[i];
 			i++;
 		}
-	}
-
-	void PrintThing()
-	{
-		Debug.Log("This is a thing!");
 	}
 }

@@ -8,6 +8,14 @@ public class ThrottleMove : MonoBehaviour
 	[SerializeField] float stoppingSpeed = 2f;
 	float dragDot = 0f;
 
+	public float value
+	{
+		get
+		{
+			return Mathf.InverseLerp(-maxOffset, maxOffset, transform.localPosition.z);
+		}
+	}
+
 	Vector3 initMousePos;
 
 	void OnMouseDown()
