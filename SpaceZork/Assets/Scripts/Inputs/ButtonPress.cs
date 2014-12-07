@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class ButtonPress : MonoBehaviour 
 {
 	[SerializeField] float pressOffset = 1f;
@@ -10,14 +11,19 @@ public class ButtonPress : MonoBehaviour
 
 	Vector3 initOffset;
 
+	AudioSource source;
+
 	void Awake()
 	{
+		source = GetComponent<AudioSource>();
 		initOffset = transform.localPosition;
 	}
 
 	void OnMouseDown()
 	{
+		StopAllCoroutines();
 		transform.localPosition = Vector3.up * -pressOffset + initOffset;
+		source.Play();
 	}
 
 	IEnumerator OnMouseUp()

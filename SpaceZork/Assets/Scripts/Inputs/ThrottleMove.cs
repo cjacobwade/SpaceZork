@@ -5,27 +5,39 @@ public class ThrottleMove : MonoBehaviour
 {
 	[SerializeField] float maxOffset = 2f;
 	[SerializeField] float moveSpeed = 7f;
+	[SerializeField] float stoppingSpeed = 2f;
+	float dragDot = 0f;
 
 	Vector3 initMousePos;
 
 	void OnMouseDown()
 	{
-		initMousePos = Input.mousePosition;
+		initMousePos = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
 	}
 
 	void OnMouseDrag()
 	{
-		float camOffset = transform.position.z - Camera.main.transform.position.z;
-		Vector3 mouseDeltaWorld = Camera.main.ScreenToWorldPoint(initMousePos + Input.mousePosition);
-		Vector3 targetPos = transform.TransformDirection(mouseDeltaWorld + Vector3.forward * camOffset);
+		Vector3 currentMousePos = Camera.main.ScreenPointToRay(Input.mousePosition).direction;
+		dragDot = Vector3.Dot(currentMousePos - initMousePos, transform.forward);
 
-		Debug.Log(targetPos);
+		Debug.Log(dragDot);
+	}
 
-		targetPos.x = 0f;
-		targetPos.z = Mathf.Clamp(targetPos.z, -maxOffset, maxOffset);
-		targetPos.y = 0f;
+	void Update()
+	{
+		if(dragDot > WadeUtils.SMALLNUMBER || dragDot < -WadeUtils.SMALLNUMBER)
+		{
+			transform.localPosition += transform.forward * dragDot * moveSpeed;
+		}
 
-		transform.localPosition = targetPos;
-		//transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, Time.deltaTime * moveSpeed);
+		if(!Input.GetMouseButton(0))
+		{
+			dragDot = Mathf.Lerp(dragDot, 0f, Time.deltaTime * stoppingSpeed);
+		}
+		
+		Vector3 localPos = Vector3.zero;
+		localPos.z = Mathf.Clamp(transform.localPosition.z, -maxOffset, maxOffset);
+		
+		transform.localPosition = localPos;
 	}
 }
