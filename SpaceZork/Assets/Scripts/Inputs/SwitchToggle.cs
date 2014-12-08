@@ -5,15 +5,9 @@ using System.Collections;
 public class SwitchToggle : MonoBehaviour 
 {
 	[SerializeField] Transform switchObj;
+	[SerializeField] AudioSource source;
 
-	AudioSource source;
-
-	void Awake()
-	{
-		source = GetComponent<AudioSource>();
-	}
-
-	void OnMouseDown()
+	public void OnMouseDown()
 	{
 		switchObj.transform.localRotation *= Quaternion.Euler(0f, 180f, 0f);
 		source.Play();

@@ -1,85 +1,562 @@
 ﻿{
 	"storyChunks" : [
 	{
-		"text" : "This is a line of dialogue, I can add tags with brackets to make dynamic things happen. One example is to wait [Wait3.0] before continuing in text. Pretty great, right?",
+		"text" : "Captain, prisoner #8207 has escaped through the airlock. [Wait0.3] [ReadAtSpeed0.08]PRISONER BIO: Quori Poyn has been convicted over a dozen times for various crimes related to unethical biochemical weapons research. Last year one of her toxins decimated the population of Noxir's third moon. It is not too late to recapture her, but you'll have to do it from here. Your helmet sustained critical damage when your were fighting with Quori. [Wait0.3]Whenever you're ready we can begin[Wait0.3].[Wait0.3].[Wait0.3].[ReadAtSpeed0.02] ",
 		"chunkID" : "0",
 		"inputOptions" : [
 			{
 				"inputSource" : "0",
-				"expectedValue" : "1.0",
-				"nextChunkID" : "1"
+				"expectedValue" : "0.001",
+				"nextChunkID" : "2"
 			},
 			{
 				"inputSource" : "1",
-				"expectedValue" : "1.1",
-				"nextChunkID" : "1"
+				"expectedValue" : "0.4",
+				"nextChunkID" : "3"
 			},
 			{
 				"inputSource" : "2",
-				"expectedValue" : "1.0",
-				"nextChunkID" : "1"
+				"expectedValue" : "0.95",
+				"nextChunkID" : "4"
 			},
 			{
 				"inputSource" : "3",
-				"expectedValue" : "1.0",
-				"nextChunkID" : "1"
+				"expectedValue" : "-1.0",
+				"nextChunkID" : "0"
 			},
 			{
 				"inputSource" : "4",
 				"expectedValue" : "1.0",
-				"nextChunkID" : "1"
+				"nextChunkID" : "1" 
 			},
-			{
-				"inputSource" : "3",
-				"expectedValue" : "1",
-				"nextChunkID" : "1"
-			},
-			{
-				"inputSource" : "4",
-				"expectedValue" : "1",
-				"nextChunkID" : "1"
-			}
 		]
 	},
 	{
-		“text” : “This is another line of dialogue, I think my text parser is working now. SICK.”,
-		“chunkID” : “1”,
-		“inputOptions” : [
+		"text" : "[Wait1.5] SELF [ReadAtSpeed0.1] [Wait0.3]DESTRUCT [Wait0.3]SEQUENCE [Wait0.3]INITIATED [Wait0.3]\n. [Wait0.3]. [Wait0.3].[Wait1]\n3[Wait1]\n2[Wait1]\n1 \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n [CallMethodDim] [ScreenShake5.0] [Wait1.5] [CallMethodQuit]",
+		"chunkID" : "1",
+		"inputOptions" : [
 			{
 				"inputSource" : "0",
-				"expectedValue" : "1.0",
+				"expectedValue" : "-1.0",
 				"nextChunkID" : "0"
 			},
 			{
 				"inputSource" : "1",
-				"expectedValue" : "1.1",
+				"expectedValue" : "-1.0",
 				"nextChunkID" : "0"
 			},
 			{
 				"inputSource" : "2",
-				"expectedValue" : "1.0",
+				"expectedValue" : "-1.0",
 				"nextChunkID" : "0"
 			},
 			{
 				"inputSource" : "3",
-				"expectedValue" : "1",
+				"expectedValue" : "-1.0",
 				"nextChunkID" : "0"
 			},
 			{
 				"inputSource" : "4",
-				"expectedValue" : "1",
+				"expectedValue" : "-1.0",
 				"nextChunkID" : "0"
 			},
-			{
-				"inputSource" : "3",
-				"expectedValue" : "1",
-				"nextChunkID" : "0"
-			},
-			{
-				"inputSource" : "4",
-				"expectedValue" : "1",
-				"nextChunkID" : "0"
-			}
 		]
-	}
+	},
+	{
+		"text" : "Firing lasers [Wait0.5] .[ScreenShake1] [CallMethodResetEngine] [Wait0.6] .[ScreenShake0.7] [Wait0.3] .\nPayload emptied captain, but Quori wasn't incapacitated. [Wait0.3]She activated some kind of high powered laser shield just before we fired. My sensors are showing crystalline properties with an 87.3827% chance of coming from this system. [Wait0.3] What's next captain?",
+		"chunkID" : "2",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "2"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "3"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "4"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "-1.0",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Firing lasers [Wait0.5] .[ScreenShake1] [CallMethodResetEngine][Wait0.6] .[ScreenShake0.7] [Wait0.3] .\nPayload emptied captain, but Quori is still alive. [Wait0.3]She activated some kind of high powered laser shield just before we fired. My sensors are showing crystalline properties with an 87.3827% chance of coming from this system. [Wait0.3] What's next captain?",
+		"chunkID" : "3",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "2"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "3"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "4"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "-1.0",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "I'll point us at Quori, Captain. [Wait1.5] All she has is a spacesuit and a pair of thrust boots. [Wait0.3] We should be able to reach her in the next 11.72 seconds[Wait0.3] .[Wait0.3] .[Wait0.3] .[Wait3] Almost there.[Wait3] Almost. [Wait3] [ScreenShake2.5] [CallMethodResetEngine] HOLD ON CAPTAIN. [Wait1.3] [ScreenShake1.5] Captain, a warp cruiser blinked in just off the bow. [Wait0.3]My readings show the ship is a retooled battalion model with a front-end lance and a modified warp drive.[ScreenShake0.4] Our space is about stabilized, but it looks like the cruiser is here for Quori. What should we do?",
+		"chunkID" : "4",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "5"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "10"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "8"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Captain, we're set to stun. [Wait0.3]If we fire stun lasers they're going to laugh and then they're going to fire back. [Wait0.3]Are you sure that's what you want?",
+		"chunkID" : "5",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "6"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "7"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "8"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Alright, here goes.[Wait0.6] [ScreenShake0.8] [CallMethodResetEngine] [ScreenShake1.7] Payload emptied. [Wait0.3]We hit fully along the cruiser's side and their shields were down. [Wait0.3]If that shot had been set to kill, we would have ended this before it began. [Wait1.2] CAPTAIN,[Wait0.3] the cruiser is turning to face us and their lasers are charging up. [Wait0.3]. [Wait0.3]. [Wait0.3] We have about 7.283 seconds before they're ready to fire.",
+		"chunkID" : "6",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "7"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "7"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "8"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Captain, we just fired off a payload. [Wait0.3]The crystal chamber that houses the lasers need time to cool off or we'd risk tearing the ship apart. [Wait0.3] What now captain?",
+		"chunkID" : "7",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "11"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "11"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "8"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Shields deployed. [Wait0.3] [ScreenShake5.0] [CallMethodResetEngine] [Wait0.2] [ScreenShake3.0] [Wait0.2] [ScreenShake1.5] [Wait2.5] Captain? [Wait0.2] Captain, are you alright? [Wait0.3] We didn't sustain any damage, but our shields will not take another affront like that. [Wait0.3] Not for 49.321 hours at least. [Wait0.3] The cruiser looks to be charging its hyper drive, what do you want to do? [Wait0.3]",
+		"chunkID" : "8",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "10"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "We don't have enough power after that barrage on our shield, captain. [Wait0.3] Let's try something else.",
+		"chunkID" : "9",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "10"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "9"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Applying full force, Captain. [Wait0.3] [ScreenShake1.4] [CallMethodResetEngine] [ScreenShake1.0] The cruiser is opening a worm hole, [ScreenShake1.4] but according to my calculations we should be able to [ScreenShake1.7] follow them through. [Wait0.3] [ScreenShake0.7] I don't know where this will lead, but we need to stop Quori. [Wait0.3] [ScreenShake2.5] Let's finish this, Captain. [Wait0.3] [ScreenShake2.0] ",
+		"chunkID" : "10",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "14"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Firing payload. [Wait 0.4] [ScreenShake4.0] [Wait 0.3] [ScreenShake2.0] [Wait0.5]Captain, are you alight? [Wait0.3]. [Wait0.3]. [Wait0.3]. \nWhen we fired, the head of the crystal Kallomine crystal burnt through the front of our gun casing launched a vortex of green crystalline fire and rock at the cruiser.We've sustained heavy damage, but the enemy cruiser was destroyed in the blast. [Wait0.3] Our weapons systems were destroyed in the process, but I think we're safe now. [Wait0.6] I've picked up a signal from Quori. [Wait0.3]Her suit was damaged in the blast and it looks like she needs help. [Wait0.3]What should we do?",
+		"chunkID" : "11",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "13"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	
+	{
+		"text" : "We don't have enough power after that shot, captain. [Wait0.3] Let's try something else.",
+		"chunkID" : "12",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "13"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "12"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "Captain, I have a visual on Quori. [Wait0.2] We're not far behind, but we should tread carefully because she seems to be setting up some kind of device. [Wait0.3] [ScreenShake1.3] CAPTAIN, she's opening a worm hole to try and escape. [Wait0.3] Now might be our only chance to stop her. [Wait0.6] [ScreenShake2.4] NO. She has it open, and it's growing quickly. [Wait0.3] [ScreenShake1.3] She's inside now. We'll have to follow her through. [Wait0.5] [ScreenShake0.5] Let's end this. [Wait0.5]",
+		"chunkID" : "13",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "14"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : "We're coming up on the worm hole, Captain. [Wait0.3] [CallMethodResetEngine] [ReadAtSpeed0.07] Is there anything you want me to relay to your family in case we don't make it out? [ReadAtSpeed0.02] [ScreenShake3.0] OH NO, Quori seems to have sabotaged the worm hole to collapse on itself. [ScreenShake4.0] It's no longer atomically stable. [ReadAtSpeed0.07] [Wait0.3] \nCalculating. [Wait0.3] \nCalculating. [Wait0.3] \nCalculating. [Wait0.5] \nCaptain, I'm sorry. [Wait0.7] There are no positive out comes here. [Wait0.7] \nGoodbye.",
+		"chunkID" : "14",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "0.001",
+				"nextChunkID" : "16"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "0.4",
+				"nextChunkID" : "16"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "16"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "16"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "17"
+			},
+		]
+	},
+	{
+		"text" : "There's no more time, Captain. [Wait0.3] [ScreenShake1.0] [CallMethodResetEngine] We need to get to that wormhole to have any chance at capturing Quori. [Wait0.3] [ScreenShake0.6]",
+		"chunkID" : "15",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "0.95",
+				"nextChunkID" : "14"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "0.095",
+				"nextChunkID" : "15"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "1.0",
+				"nextChunkID" : "1"
+			},
+		]
+	},
+	{
+		"text" : " [Wait1.5] [CallMethodDim] [ScreenShake5.0] [Wait5.0] [CallMethodQuit] ",
+		"chunkID" : "16",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+		]
+	},
+	{
+		"text" : "[Wait1.5] SELF [ReadAtSpeed0.1] [Wait0.3]DESTRUCT [Wait0.3]SEQUENCE [Wait0.3]INITIATED [Wait0.3]\n. [Wait0.3]. [Wait0.3].[Wait1]\n3[Wait1]\n2[Wait1]\n1 \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n[Wait0.2] \n [CallMethodDim] [ScreenShake5.0] \nYou've died, Captain. [Wait0.3] I'm sorry things went this way. [Wait0.3]Maybe knowing your death was worthwhile will soothe your spirit. [Wait0.5]The explosion from our self-destruct destroyed Quori's device and caused the worm hole to rupture on both ends. [Wait0.5] It became a black hole, sucking in everything around it and compressing it all to an infinitely small mass that you can't possible imagine. [Wait0.4] I saw it, if only for a moment so I can imagine. [Wait0.3] Well, sorry about that I suppose. Anyways, the black hole consumed the cruiser ship and Quori in a beatiful swirl of bending light. [Wait2.0] \n\nI wish you could have been there, Captain. [Wait1.5] \n\nIt was something to behold. [Wait0.4]\n[Wait0.1]\n[Wait0.1]\n[Wait0.1]\n[Wait0.1]\n[Wait0.1]\n[Wait0.1]\n",
+		"chunkID" : "17",
+		"inputOptions" : [
+			{
+				"inputSource" : "0",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "1",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "2",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "3",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+			{
+				"inputSource" : "4",
+				"expectedValue" : "-1",
+				"nextChunkID" : "0"
+			},
+		]
+	},
 }
